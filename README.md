@@ -45,7 +45,7 @@ pip install -e ".[dev]"
 
 ## Linux USB Access
 
-On Linux, you need udev rules to access FIDO2 devices without root. Create `/etc/udev/rules.d/70-fido2.rules`:
+Try it, on Linux you may need udev rules to access FIDO2 devices without root. Create `/etc/udev/rules.d/70-fido2.rules`:
 
 ```
 # FIDO2 devices
