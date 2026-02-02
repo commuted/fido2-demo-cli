@@ -10,9 +10,9 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
 authors = [
-    { name = "Ron", email = "ron@example.com" }
+    { name = "Ron", email = "fido2-demo-cli@proton.me" }
 ]
-keywords = ["fido2", "webauthn", "security", "authentication", "passwordless", "yubikey"]
+keywords = ["fido2", "webauthn", "passkeys", "security", "authentication", "passwordless", "yubikey", "Google Titan", "SoloKey", "cli"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
