@@ -638,7 +638,7 @@ def delete_credential():
         for i, cred in enumerate(user_creds, 1):
             resident_status = "[Discoverable]" if cred.get("is_resident") else "[Server-side]"
             print(f"  [{i}] {cred['key_name']} {resident_status}")
-        print(f"  [A] Delete ALL keys (remove user)")
+        print("  [A] Delete ALL keys (remove user)")
 
         choice = input("\nSelect key to delete: ").strip()
 
