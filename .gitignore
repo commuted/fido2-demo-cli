@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env_math/
+venv/
+.venv/
+
+# IDE/Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Project specific
+fido2_credentials.json
+*.bak
+
+# Temporary files
+last-edit.txt
