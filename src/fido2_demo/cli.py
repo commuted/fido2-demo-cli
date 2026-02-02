@@ -41,7 +41,7 @@ from fido2.webauthn import (
 # Configuration
 RP_ID = "localhost"
 RP_NAME = "FIDO2 Demo Application"
-CREDENTIALS_FILE = Path(__file__).parent / "fido2_credentials.json"
+CREDENTIALS_FILE = Path.cwd() / "fido2_credentials.json"
 PIN_MAX_ATTEMPTS = 3  # Max attempts for wrong PIN before giving up
 
 

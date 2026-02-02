@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Unit tests for FIDO2 Demo Application
+Unit tests for FIDO2 Demo CLI Application
 
-Run with: pytest test_fido2_demo.py -v
+Run with: pytest -v
 
 Includes:
 - Unit tests for isolated logic
@@ -19,7 +19,7 @@ from unittest.mock import MagicMock, patch, PropertyMock
 import pytest
 
 # Import the module under test
-import fido2_demo
+from fido2_demo import cli as fido2_demo
 
 
 class TestCredentialStorage:
@@ -305,7 +305,7 @@ class TestUserIdLookup:
 class TestDeviceDetection:
     """Tests for device detection functionality."""
 
-    @patch('fido2_demo.CtapHidDevice')
+    @patch('fido2_demo.cli.CtapHidDevice')
     def test_no_devices_found(self, mock_ctap, capsys):
         """Test handling when no FIDO2 devices are found."""
         mock_ctap.list_devices.return_value = []
@@ -316,7 +316,7 @@ class TestDeviceDetection:
         captured = capsys.readouterr()
         assert "No FIDO2 device found" in captured.out
 
-    @patch('fido2_demo.CtapHidDevice')
+    @patch('fido2_demo.cli.CtapHidDevice')
     def test_single_device_found(self, mock_ctap, capsys):
         """Test auto-selection when single device is found."""
         mock_device = MagicMock()
@@ -326,7 +326,7 @@ class TestDeviceDetection:
 
         assert result == mock_device
 
-    @patch('fido2_demo.CtapHidDevice')
+    @patch('fido2_demo.cli.CtapHidDevice')
     @patch('builtins.input', return_value='1')
     def test_multiple_devices_selection(self, mock_input, mock_ctap, capsys):
         """Test device selection when multiple devices are found."""
@@ -546,9 +546,9 @@ class TestIntegrationAuthFlow:
         mock_data.credential_data = None
         return mock_data
 
-    @patch('fido2_demo.CtapHidDevice')
-    @patch('fido2_demo.Fido2Client')
-    @patch('fido2_demo.Fido2Server')
+    @patch('fido2_demo.cli.CtapHidDevice')
+    @patch('fido2_demo.cli.Fido2Client')
+    @patch('fido2_demo.cli.Fido2Server')
     def test_full_register_then_authenticate_cycle(
         self, mock_server_class, mock_client_class, mock_hid, tmp_path, capsys
     ):
@@ -640,7 +640,7 @@ class TestIntegrationAuthFlow:
                 assert found is not None
                 assert found["key_name"] == "Test Key"
 
-    @patch('fido2_demo.CtapHidDevice')
+    @patch('fido2_demo.cli.CtapHidDevice')
     def test_counter_update_after_successful_auth(self, mock_hid, tmp_path):
         """Test that counter is properly updated after authentication."""
         cred_file = tmp_path / "creds.json"
