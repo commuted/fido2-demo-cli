@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
-    { name = "Ron", email = "fido2-demo-cli@proton.me" }
+    { name = "Ron", email = "git-commuted@proton.me" }
 ]
 keywords = ["fido2", "webauthn", "passkeys", "security", "authentication", "passwordless", "yubikey", "Google Titan", "SoloKey", "cli"]
 classifiers = [
